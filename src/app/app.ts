@@ -8,5 +8,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('mean-books-client');
+  // any properties set in this component are accessible in the html view
+  protected readonly title: string = 'Welcome to our Library';
 }
