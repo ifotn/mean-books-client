@@ -6,21 +6,24 @@
         </li>
     }
 </ul>
-<section>
-    <h1>Book Details</h1>
-    <form>
-        <fieldset>
-            <label for="_id">_id:</label>
-            <input id="_id" name="_id" [ngModel]="book?._id" />
-        </fieldset>
-        <fieldset>
-            <label for="title">title:</label>
-            <input id="title" name="title" [ngModel]="book?.title" />
-        </fieldset>
-        <fieldset>
-            <label for="year">year:</label>
-            <input id="year" name="year" [ngModel]="book?.year" />
-        </fieldset>
-        <button (click)="clearForm()">Reset</button>
-    </form>
-</section>
+@if (book) {
+    <section>
+        <h1>Book Details</h1>
+        <form>
+            <fieldset>
+                <label for="_id">_id:</label>
+                <input id="_id" name="_id" [(ngModel)]="book._id" />
+            </fieldset>
+            <fieldset>
+                <label for="title">title:</label>
+                <input id="title" name="title" [(ngModel)]="book.title" />
+            </fieldset>
+            <fieldset>
+                <label for="year">year:</label>
+                <input id="year" name="year" [(ngModel)]="book.year" />
+            </fieldset>
+            <button (click)="clearForm()">Reset</button>
+        </form>
+    </section>
+}
+
