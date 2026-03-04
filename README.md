@@ -32,6 +32,12 @@ Inside src/app/services:
 ng generate service bookService
 ```
 
+Creating environment folder + files:
+
+```bash
+ng generate environments
+```
+
 ## Building
 
 To build the project run:

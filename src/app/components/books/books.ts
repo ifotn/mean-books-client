@@ -39,11 +39,32 @@ export class Books {
   }
 
   saveBook(book: Book): void {
-    this.bookService.createBook(book).subscribe((response) => {
-      // refresh page
-      this.getBooks();
-      this.clearForm();
-    });
+    if (!book._id) {
+      // new book
+      this.bookService.createBook(book).subscribe((response) => {
+        // refresh page
+        this.getBooks();
+        this.clearForm();
+      });
+    }
+    else {
+      // edit existing book
+      this.bookService.updateBook(book).subscribe((response) => {
+        // refresh page
+        this.getBooks();
+        this.clearForm();
+      });
+    }   
+  }
+
+  deleteBook(_id: string): void {
+    if (confirm('Are you sure you want to delete this book?')) {
+      this.bookService.deleteBook(_id).subscribe((response) => {
+         // refresh page
+        this.getBooks();
+        this.clearForm();
+      });
+    }
   }
 
   // select book when an item in list is clicked

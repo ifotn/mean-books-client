@@ -14,15 +14,18 @@
             <h1>Book Details</h1>
             <form>
                 <fieldset class="form-group p-2">
-                    <label for="title" class="control-label p-2">title:</label>
+                    <label for="title" class="control-label m-2">title:</label>
                     <input id="title" name="title" [(ngModel)]="book.title" />
                 </fieldset>
                 <fieldset class="form-group p-2">
-                    <label for="year" class="control-label p-2">year:</label>
+                    <label for="year" class="control-label m-2">year:</label>
                     <input id="year" name="year" [(ngModel)]="book.year" />
                 </fieldset>
-                <button (click)="saveBook(book)" class="btn btn-info p-2">Save</button>
-                <button (click)="clearForm()" class="btn btn-info p-2">Reset</button>
+                <button (click)="saveBook(book)" class="btn btn-info m-2">Save</button>
+                <button (click)="clearForm()" class="btn btn-info m-2">Reset</button>
+                @if (book._id) {
+                    <button (click)="deleteBook(book._id)" class="btn btn-danger m-2">Delete</button>
+                }                 
             </form>
         </section>
     </section>
