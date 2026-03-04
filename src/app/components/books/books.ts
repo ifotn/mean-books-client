@@ -2,21 +2,41 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Book } from '../../models/book.model';
 
+// l8 imports
+import { BookService } from '../../services/book-service';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef } from '@angular/core';
+
 @Component({
   selector: 'app-books',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './books.html'
 })
 export class Books {
-  // create in-memory array of books
-  BOOKS: Book[] = [
-    { _id: 'abc123', title: 'Adrift', year: 2023 },
-    { _id: 'def456', title: 'A Long Way Down', year: 2006 },
-    { _id: 'ghi789', title: 'High Fidelity', year: 1995 }
-  ];
+  // create array of books to hold data returned from api
+  BOOKS: Book[] = [];
 
   // component to manage single book
-  book: Book | undefined;
+  book: Book = {
+    title: '',
+    year: 1000
+  };
+
+  // constructor: initialize service when component instatiated => Dependency Injection
+  constructor(private bookService: BookService, private cdr: ChangeDetectorRef) {
+    // fetch books onload
+    this.getBooks();
+  }
+
+  // get books from api via service
+  getBooks(): void {
+    this.bookService.getBooks().subscribe((response) => {
+      console.log(response);
+      this.BOOKS = response;
+      // ensure changes seen in ui
+      this.cdr.detectChanges();
+    });
+  }
 
   // select book when an item in list is clicked
   onSelect(selectedBook: Book): void {
@@ -24,6 +44,8 @@ export class Books {
   }
 
   clearForm(): void {
-    this.book = undefined;
+    this.book.title = '';
+    this.book.year = 1000;
+    this.book._id = undefined;
   }
 }
