@@ -38,6 +38,14 @@ export class Books {
     });
   }
 
+  saveBook(book: Book): void {
+    this.bookService.createBook(book).subscribe((response) => {
+      // refresh page
+      this.getBooks();
+      this.clearForm();
+    });
+  }
+
   // select book when an item in list is clicked
   onSelect(selectedBook: Book): void {
     this.book = selectedBook;

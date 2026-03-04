@@ -21,6 +21,7 @@
                     <label for="year" class="control-label p-2">year:</label>
                     <input id="year" name="year" [(ngModel)]="book.year" />
                 </fieldset>
+                <button (click)="saveBook(book)" class="btn btn-info p-2">Save</button>
                 <button (click)="clearForm()" class="btn btn-info p-2">Reset</button>
             </form>
         </section>
