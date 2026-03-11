@@ -69,7 +69,9 @@ export class Books {
 
   // select book when an item in list is clicked
   onSelect(selectedBook: Book): void {
-    this.book = selectedBook;
+    // make a "shallow" copy of the book so list not updated in realtime
+    // ... is the "spread" operator in JS - references all properties of an object / array
+    this.book = { ...selectedBook };
   }
 
   clearForm(): void {

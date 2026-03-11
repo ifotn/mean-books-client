@@ -3,8 +3,8 @@
     <section class="col-lg-6">
         <ul class="list-group">
             @for (book of BOOKS; track book._id) {
-            <li class="list-group-item">
-                    {{ book.title }} <button (click)="onSelect(book)">Select</button>
+                <li class="list-group-item d-flex">
+                    {{ book.title }} <button (click)="onSelect(book)" class="btn btn-info ms-auto">Select</button>
                 </li>
             }
         </ul>

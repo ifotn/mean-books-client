@@ -1,1 +1,13 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+button.btn btn-primary {
+    color: #ffffff;
+}
+
+label {
+    width: 120px;
+}
+
+fieldset {
+    margin: 4px;
+}
