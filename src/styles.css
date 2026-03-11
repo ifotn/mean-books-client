@@ -1,7 +1,7 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-button.btn btn-primary {
-    color: #ffffff;
+button {
+    color: #ffffff !important;
 }
 
 label {
