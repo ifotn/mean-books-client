@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule],  // only need imports used by html file
   templateUrl: './login.html',
   styleUrl: './login.css',
 })

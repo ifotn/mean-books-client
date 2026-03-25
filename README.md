@@ -62,4 +62,10 @@ cd src/app/services
 ng generate service auth-service
 ```
 
+```bash
+cd..
+cd components
+ng generate component logout
+```
+
 

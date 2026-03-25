@@ -6,6 +6,7 @@ import { Book } from '../../models/book.model';
 import { BookService } from '../../services/book-service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-books',
@@ -13,6 +14,8 @@ import { ChangeDetectorRef } from '@angular/core';
   templateUrl: './books.html'
 })
 export class Books {
+  isAuthenticated: boolean = false;
+
   // create array of books to hold data returned from api
   BOOKS: Book[] = [];
 
@@ -23,9 +26,14 @@ export class Books {
   };
 
   // constructor: initialize service when component instatiated => Dependency Injection
-  constructor(private bookService: BookService, private cdr: ChangeDetectorRef) {
+  constructor(private bookService: BookService, private cdr: ChangeDetectorRef, private authService: AuthService) {
     // fetch books onload
     this.getBooks();
+
+    this.authService.checkAuthStatus().subscribe({
+      next: () => { this.isAuthenticated = true },
+      error: () => { this.isAuthenticated = false }
+    });
   }
 
   // get books from api via service
