@@ -1,16 +1,17 @@
 <h1>Register</h1>
-<form>
+<form (ngSubmit)="register()">
+    <h2 class="{{messageClass}}">{{message}}</h2>
     <fieldset>
         <label>Username:</label>
-        <input />
+        <input [(ngModel)]="username" name="username" required />
     </fieldset>
     <fieldset>
         <label>Password:</label>
-        <input type="password" />
+        <input type="password" [(ngModel)]="password" name="password" required />
     </fieldset>
     <fieldset>
         <label>Confirm:</label>
-        <input type="password" />
+        <input type="password" [(ngModel)]="confirm" name="confirm" required />
     </fieldset>
-    <button class="btn btn-info offset-2">Login</button>
+    <button class="btn btn-info offset-2">Register</button>
 </form>

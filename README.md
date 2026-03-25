@@ -55,4 +55,11 @@ cd src/app/components
 ng generate component nav
 ```
 
+## Lesson 10 Commands
+
+```bash
+cd src/app/services
+ng generate service auth-service
+```
+
 
