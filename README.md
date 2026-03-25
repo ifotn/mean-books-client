@@ -68,4 +68,21 @@ cd components
 ng generate component logout
 ```
 
+## Deployment Steps
 
+### Angular Client
+1. Copy contents of environment.development.ts => environment.ts
+2. Change production => true
+3. Change serverUrl => your Express API domain on Vercel
+4. Change your service import from environment.development to .enviroment
+5. In .gitignore, add # in front of "enviroment"
+6. Push Angular client to GitHub
+7. Deploy Angular client from GitHub to new Vercel project
+
+### Express API
+
+1. From Vercel, copy url to Angular client app (the root domain, not the domain for any individual deployment)
+2. In Vercel, in your server app, Settings / Environment Variables => add CLIENT_URL and paste url to your Angular client app.  Remove any trailing slashes.
+3. Click Redeploy in blue box at bottom right.
+
+This should allow CORS permissions in your API for your Angular client.
