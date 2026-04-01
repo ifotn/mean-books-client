@@ -7,9 +7,14 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
           <a class="nav-link text-light" routerLink="/books">Books</a>
-          <a class="nav-link text-light" routerLink="/register">Register</a>
-          <a class="nav-link text-light" routerLink="/login">Login</a>
-          <a class="nav-link text-light" routerLink="/logout">Logout</a>
+          @if (!username) {
+            <a class="nav-link text-light" routerLink="/register">Register</a>
+            <a class="nav-link text-light" routerLink="/login">Login</a>
+          }
+          @if (username) {
+            <a class="nav-link text-light" href="#">{{username}}</a>
+            <a class="nav-link text-light" routerLink="/logout">Logout</a>
+          }           
         </div>
       </div>
     </div>

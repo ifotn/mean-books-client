@@ -33,6 +33,8 @@ export class Login {
         this.message = 'Login Successful';
         this.messageClass = 'alert alert-success';  // change message bg => green
         this.cdr.detectChanges();
+        // set global username for navbar
+        if (this.username) this.authService.setUsername(this.username);
       },
       error: error => {
         this.message = 'Invalid Login';

@@ -18,6 +18,8 @@ export class Logout implements OnInit {
   ngOnInit(): void {
     // call service to log user out, then redirect to home
     this.authService.logout().subscribe(response => {
+      // clear global username from authService
+      this.authService.clearUsername();
       this.router.navigate(['/']);
     });
   }
